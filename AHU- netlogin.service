@@ -1,0 +1,15 @@
+[Unit]
+Description=AHU Network Login Service
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+Restart=on-failure
+RestartSec=5s
+ExecStart=python3 /etc/AHU-netlogin.py
+ExecReload=python3 /etc/AHU-netlogin.py
+LimitNOFILE=1048576
+
+[Install]
+WantedBy=multi-user.target
